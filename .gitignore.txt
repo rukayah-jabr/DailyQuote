@@ -1,0 +1,70 @@
+
+ 6 files changed, 229 insertions(+), 49 deletions(-)
+ delete mode 100644 table_assignment_4/CountriesVie.swift
+ create mode 100644 table_assignment_4/CountriesView.swift
+ create mode 100644 table_assignment_4/CountryModel.swift
+ create mode 100644 table_assignment_4/UsersModel.swift
+rukayah@MacBook-Air-von-rukayah fixed-excercise-tableview-rukayah-jabr % git push
+Enumerating objects: 32, done.
+Counting objects: 100% (32/32), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (22/22), 71.80 KiB | 10.26 MiB/s, done.
+Total 22 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), completed with 5 local objects.
+To https://github.com/FH-Campus-Wien/fixed-excercise-tableview-rukayah-jabr.git
+   f7e9351..7b61742  main -> main
+rukayah@MacBook-Air-von-rukayah fixed-excercise-tableview-rukayah-jabr % cd ..
+rukayah@MacBook-Air-von-rukayah Exercise4 % cd /Users/rukayah/Desktop/Projekt
+rukayah@MacBook-Air-von-rukayah Projekt % ls
+DailyQuote
+rukayah@MacBook-Air-von-rukayah Projekt % cd DailyQuote 
+rukayah@MacBook-Air-von-rukayah DailyQuote % clear
+
+rukayah@MacBook-Air-von-rukayah DailyQuote % git init 
+Initialized empty Git repository in /Users/rukayah/Desktop/Projekt/DailyQuote/.git/
+rukayah@MacBook-Air-von-rukayah DailyQuote % touch .gitignore 
+rukayah@MacBook-Air-von-rukayah DailyQuote % touch .gitignore
+rukayah@MacBook-Air-von-rukayah DailyQuote % touch .gitignore
+rukayah@MacBook-Air-von-rukayah DailyQuote % pwd
+/Users/rukayah/Desktop/Projekt/DailyQuote
+rukayah@MacBook-Air-von-rukayah DailyQuote % touch .gitignore
+rukayah@MacBook-Air-von-rukayah DailyQuote % ls -la
+total 24
+drwxr-xr-x   9 rukayah  staff   288 24 Dez 21:52 .
+drwxr-xr-x@  4 rukayah  staff   128 24 Dez 21:41 ..
+-rw-r--r--@  1 rukayah  staff  8196 24 Dez 21:53 .DS_Store
+drwxr-xr-x   9 rukayah  staff   288 24 Dez 21:52 .git
+-rw-r--r--   1 rukayah  staff     0 24 Dez 21:55 .gitignore
+drwxr-xr-x  12 rukayah  staff   384 24 Dez 21:50 DailyQuote
+drwxr-xr-x@  5 rukayah  staff   160 21 Okt 18:39 DailyQuote.xcodeproj
+drwxr-xr-x   3 rukayah  staff    96 21 Okt 18:26 DailyQuoteTests
+drwxr-xr-x   4 rukayah  staff   128 21 Okt 18:26 DailyQuoteUITests
+rukayah@MacBook-Air-von-rukayah DailyQuote % nano .gitignore
+
+
+
+  UW PICO 5.09                    File: .gitignore                    Modified  
+
+*.ipa  
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# CocoaPods
+Pods/  
+
+
+
+
+
+
+
+
+
+
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell  
