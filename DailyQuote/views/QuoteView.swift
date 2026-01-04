@@ -5,11 +5,14 @@
 //  Created by rukayah on 21.10.25.
 //
 
+
 import SwiftUI
 
 struct QuoteView: View {
     @StateObject private var viewModel = QuoteViewModel()
+    @Environment(\.modelContext) private var modelContext
 
+    
     var body: some View {
         VStack(spacing: 20) {
             if viewModel.isLoading {
@@ -19,28 +22,36 @@ struct QuoteView: View {
                     .font(.title2)
                     .multilineTextAlignment(.center)
                     .padding()
-
+                
                 Text("- \(quote.author)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             } else {
                 Text("Kein Zitat verfügbar.")
             }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear {
-            viewModel.loadQuoteOfTheDay()
-        }
-        .gesture(
-            DragGesture()
-                .onEnded { value in
-                    print("Swipe detected: \(value.translation.width)")
-                    if abs(value.translation.width) > 50 {
-                        viewModel.loadQuoteOfTheDay()
-                    }
-                }
-        )
-        
+            // Pfeil button
+            Button{
+                viewModel.loadQuoteOfTheDay()
+            } label: {
+                Image(systemName: "arrow.right.circle.fill")
+                    .font(.system(size: 40))
+                    .foregroundColor(.blue)
+            }
+            .padding(.top, 30)
+            
+            // Speichern button
+            Button {
+                viewModel.saveFavorite(modelContext: modelContext)
+            } label: {
+                Image(systemName: "star.fill")
+                    .font(.system(size: 30))
+                    .foregroundColor(.yellow)
+            }
+
+            
+        } .padding()
+            .onAppear { //automatsich beim Öffnen der App
+                viewModel.loadQuoteOfTheDay()
+            }
     }
 }

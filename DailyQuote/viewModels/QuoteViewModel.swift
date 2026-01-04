@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 @MainActor
 class QuoteViewModel: ObservableObject {
@@ -20,5 +21,12 @@ class QuoteViewModel: ObservableObject {
             self?.quote = result
             self?.isLoading = false
         }
+    }
+    
+
+    func saveFavorite(modelContext: ModelContext) {
+        guard let quote = quote
+        else { return }
+        modelContext.insert(quote)
     }
 }

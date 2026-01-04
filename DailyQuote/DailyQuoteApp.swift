@@ -9,11 +9,21 @@ import SwiftUI
 import SwiftData
 
 @main
-struct DailyQuoteApp: App {
-
+struct QuoteAppApp: App {
     var body: some Scene {
         WindowGroup {
-            QuoteView()
+            TabView {
+                QuoteView()
+                    .tabItem {
+                        Label("Heute", systemImage: "text.quote")
+                    }
+
+                FavoritesView()
+                    .tabItem {
+                        Label("Favoriten", systemImage: "star.fill")
+                    }
+            }
+            .modelContainer(for: Quote.self)
         }
     }
 }

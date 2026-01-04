@@ -6,9 +6,17 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Quote: Identifiable, Codable {
-    let id: UUID = UUID()
-    let body: String
-    let author: String
+@Model
+class Quote {
+    @Attribute(.unique) var id: UUID
+    var body: String
+    var author: String
+
+    init(id: UUID = UUID(), body: String, author: String) {
+        self.id = id
+        self.body = body
+        self.author = author
+    }
 }
