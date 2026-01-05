@@ -25,14 +25,15 @@ struct QuoteAppApp: App {
                     }
             }
             .modelContainer(for: Quote.self)
-            .onAppear { UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
-                if granted {
-                    print("Benachrichtigungen erlaubt")
-                    scheduleDailyQuoteNotification()
-                } else {
-                    print("Benachrichtigungen abgelehnt")
+            .onAppear { UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
+                { granted, error in
+                    if granted {
+                        //print("Benachrichtigungen erlaubt")
+                        scheduleDailyQuoteNotification()
+                    } else {
+                        print("Benachrichtigungen abgelehnt")
+                    }
                 }
-            }
             }
         }
     }
@@ -47,8 +48,8 @@ func scheduleDailyQuoteNotification() {
 
     // Jeden Tag um 7:00 Uhr
     var dateComponents = DateComponents()
-    dateComponents.hour = 7
-    dateComponents.minute = 0
+    dateComponents.hour = 12
+    dateComponents.minute = 38
 
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
