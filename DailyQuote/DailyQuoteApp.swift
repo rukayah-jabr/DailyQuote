@@ -11,6 +11,8 @@ import UserNotifications
 
 @main
 struct QuoteAppApp: App {
+    
+  
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -48,10 +50,10 @@ func scheduleDailyQuoteNotification() {
     content.body = "Dein neues Zitat ist da!"
     content.sound = .default
 
-    // Jeden Tag um 7:00 Uhr
+    // Jeden Tag um 7:00 Uhr ist die Anforderung, aber für Demozwecke wird geändert
     var dateComponents = DateComponents()
-    dateComponents.hour = 12
-    dateComponents.minute = 38
+    dateComponents.hour = 21
+    dateComponents.minute = 31
 
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
