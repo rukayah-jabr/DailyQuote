@@ -13,21 +13,28 @@ struct FavoritesView: View {
     @Query(sort: \Quote.body) var favorites: [Quote]
 
     var body: some View {
-        List{
-            ForEach(favorites) { quote in
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("„\(quote.body)“")
-                        .font(.headline)
-                    
-                    Text("- \(quote.author)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+        ZStack {
+            Color("BackgroundColor") // Hintergrundfarbe
+                .ignoresSafeArea() // GANZER Bildschirm
+            List{
+                ForEach(favorites) { quote in
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("„\(quote.body)“")
+                            .font(.headline)
+                        
+                        Text("- \(quote.author)")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 4)
+                    .listRowBackground(Color("BackgroundColor"))
                 }
-                .padding(.vertical, 4)
+                .onDelete(perform: deleteFavorites)
             }
-            .onDelete(perform: deleteFavorites)
+            .scrollContentBackground(.hidden) // wegen Farbe
+            .background(Color.clear) // wegen Farbe
+            .navigationTitle("Favoriten")
         }
-        .navigationTitle("Favoriten")
     }
     
     private func deleteFavorites(at offsets: IndexSet) {

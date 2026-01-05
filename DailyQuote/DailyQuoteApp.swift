@@ -24,6 +24,8 @@ struct QuoteAppApp: App {
                         Label("Favoriten", systemImage: "star.fill")
                     }
             }
+            .tint(.black)
+            
             .modelContainer(for: Quote.self)
             .onAppear { UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
                 { granted, error in
